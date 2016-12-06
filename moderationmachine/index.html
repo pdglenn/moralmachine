@@ -19,7 +19,7 @@
         if (x.style.display === 'none' || x.style.display == '') {
             x.style.display = 'block';
             x.style.width = '100%';
-            document.getElementById('public_response').src = document.getElementById('public_response').src
+            // reloadPage();
             console.log('unhiding');
         } else {
             x.style.display = 'none';
@@ -27,17 +27,23 @@
             console.log('hiding');
         }
       };
+      function reloadPage(){
+        document.getElementById('report').innerHTML = '';
+        document.getElementById('report').innerHTML = "<iframe src='https://berkeley.qualtrics.com/results/public/YmVya2VsZXktVVJfYjNnaG9Hd01CVER2am1kLTU4NDRjYzU0YzZjOGE4MTgwMDcxMGZiZg==#/pages/Page_348271645465' name='Qualtrics2 ' scrolling='auto' id='public_response' frameborder='no' height='800px' ></iframe>";
+        myFunction();
+      }
     </script>
   </head>
   <body>
   <h1>The Moderation Machine</h1>
   <button onclick="myFunction()">Click to toggle viewing public report</button>
+  <button onclick="reloadPage()">Reload Report</button>
     <table width=100%>
       <tr>
         <td>
           <iframe src='https://berkeley.qualtrics.com/SE/?SID=SV_e3hrSFZXy4qQaMZ' name='Qualtrics' scrolling='auto' frameborder='no' width=100% height='800px'></iframe>
         </td>
-        <td>
+        <td id="report">
           <iframe src='https://berkeley.qualtrics.com/results/public/YmVya2VsZXktVVJfYjNnaG9Hd01CVER2am1kLTU4NDRjYzU0YzZjOGE4MTgwMDcxMGZiZg==#/pages/Page_348271645465' name='Qualtrics2 ' scrolling='auto' id='public_response' frameborder='no' height='800px' ></iframe>
         </td>
       </tr>
